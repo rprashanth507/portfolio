@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prashanth Reddy — Data Engineer</title>
+  <meta name="description" content="Prashanth Reddy — Data Engineer & Data Analyst. Building end-to-end data solutions, from ingestion and storage to dashboards that make decisions easier." />
+  <meta name="theme-color" content="#050a14" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Prashanth Reddy — Data Engineer" />
+  <meta property="og:description" content="Data Engineer & Data Analyst. Building end-to-end data solutions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/banner.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css?v=25" />
+</head>
+<body>
+  <!-- Animated space background -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- ====================== ENTRY SCREEN ====================== -->
+  <section id="entry" class="entry" aria-label="Start screen">
+    <div class="entry__inner">
+      <h1 class="entry__title">
+        <span class="entry__title-line">YOU'VE LANDED ON</span>
+        <span class="entry__title-name">PRASHANTH REDDY'S</span>
+        <span class="entry__title-line">PROFILE</span>
+      </h1>
+      <p class="entry__sub">Data Engineer &nbsp;/&nbsp; Data Analyst</p>
+
+      <button id="start-btn" class="entry__prompt" type="button" aria-label="Press X or tap to continue">
+        <span class="entry__prompt-text">Press <b>X</b> or tap to continue</span>
+        <span class="entry__caret" aria-hidden="true">&#9656;</span>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- ====================== MAIN APP ====================== -->
+  <main id="app" class="app" hidden>
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="topbar__brand">
+        <span class="topbar__logo">PR</span>
+        <button class="topbar__id" id="id-toggle" type="button" aria-expanded="false" aria-controls="id-stats" title="View details">
+          <span class="topbar__name">Prashanth Reddy</span>
+          <span class="topbar__role">Data Engineer <span class="topbar__sep">|</span> Data Analyst <span class="topbar__caret" aria-hidden="true">&#9662;</span></span>
+        </button>
+        <span class="topbar__status"><i class="dot"></i> ONLINE</span>
+        <div class="topbar__stats" id="id-stats" hidden>
+          <div><span>EXP</span><b>3+ yrs</b></div>
+          <div><span>BASE</span><b>Dallas, TX</b></div>
+          <div><span>FOCUS</span><b>Data &amp; AI</b></div>
+        </div>
+      </div>
+      <div class="topbar__controls">
+        <span class="nowplaying" id="nowplaying" tabindex="0" aria-label="Now playing">
+          <span class="nowplaying__icon" aria-hidden="true">&#9835;</span>
+          <span id="track-name">Drawings</span>
+          <span class="nowplaying__tip" id="track-tip" role="tooltip">Drawings &mdash; Nikita Kondrashev</span>
+        </span>
+        <div class="player-controls">
+          <button id="prev-track" class="transport" type="button" title="Previous song (P)" aria-label="Previous song"><span aria-hidden="true">&#9198;</span></button>
+          <button id="play-toggle" class="transport transport--play" type="button" title="Play / pause (K)" aria-label="Pause music"><span id="play-icon" aria-hidden="true">&#9208;</span></button>
+          <button id="next-track" class="transport" type="button" title="Next song (N)" aria-label="Next song"><span aria-hidden="true">&#9197;</span></button>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <!-- ===== Sidebar: player card + menu ===== -->
+      <aside class="sidebar">
+        <nav class="menu" aria-label="Sections">
+          <p class="menu__title">// MAIN MENU</p>
+          <ul class="menu__list" role="tablist">
+            <li><button class="menu__item is-active" role="tab" aria-selected="true" data-panel="home"><span class="menu__idx">01</span><span class="menu__label">Home</span><span class="menu__cursor" aria-hidden="true">&#9656;</span></button></li>
+            <li><button class="menu__item" role="tab" aria-selected="false" data-panel="about"><span class="menu__idx">02</span><span class="menu__label">About Me</span><span class="menu__cursor" aria-hidden="true">&#9656;</span></button></li>
+            <li><button class="menu__item" role="tab" aria-selected="false" data-panel="skills"><span class="menu__idx">03</span><span class="menu__label">Skills</span><span class="menu__cursor" aria-hidden="true">&#9656;</span></button></li>
+            <li><button class="menu__item" role="tab" aria-selected="false" data-panel="experience"><span class="menu__idx">04</span><span class="menu__label">Experience</span><span class="menu__cursor" aria-hidden="true">&#9656;</span></button></li>
+            <li><button class="menu__item" role="tab" aria-selected="false" data-panel="education"><span class="menu__idx">05</span><span class="menu__label">Education</span><span class="menu__cursor" aria-hidden="true">&#9656;</span></button></li>
+            <li><button class="menu__item" role="tab" aria-selected="false" data-panel="projects"><span class="menu__idx">06</span><span class="menu__label">Projects</span><span class="menu__cursor" aria-hidden="true">&#9656;</span></button></li>
+            <li><button class="menu__item" role="tab" aria-selected="false" data-panel="leadership"><span class="menu__idx">07</span><span class="menu__label">Leadership</span><span class="menu__cursor" aria-hidden="true">&#9656;</span></button></li>
+            <li><button class="menu__item" role="tab" aria-selected="false" data-panel="contact"><span class="menu__idx">08</span><span class="menu__label">Contact</span><span class="menu__cursor" aria-hidden="true">&#9656;</span></button></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- ===== Content panels ===== -->
+      <section class="content">
+        <!-- HOME -->
+        <article class="panel is-active" id="panel-home" role="tabpanel">
+          <div class="home">
+            <div class="home__text">
+              <p class="lead">Hi there &#128075; and welcome to my space! I'm <b>Prashanth Reddy</b>, and this is where you can dive deeper into what I do, what I've been working on, and what I'm passionate about. If you'd like to get to know me beyond work, head over to <button class="inline-link" data-goto="about">About Me</button>. Otherwise, let's talk work!</p>
+              <h3 class="q">Well then, what do I love working on?</h3>
+              <p>I enjoy building <b>end-to-end data solutions</b> - from solving data ingestion and storage challenges to building dashboards and analytical solutions that help businesses make better, data-backed decisions.</p>
+              <p>I want to be sitting at the intersection of business and technology, understanding real-world problems, and turning them into practical solutions that create value.</p>
+              <div class="cta-row">
+                <button class="btn btn--primary" data-goto="projects">View Projects &#9656;</button>
+                <button class="btn" data-goto="contact">Get in touch</button>
+              </div>
+            </div>
+            <aside class="home__photo">
+              <img src="assets/profile.jpg" alt="Prashanth Reddy" />
+            </aside>
+          </div>
+        </article>
+
+        <!-- ABOUT -->
+        <article class="panel" id="panel-about" role="tabpanel" hidden>
+          <h2 class="panel__title">About Me</h2>
+          <p>I'm originally from <b>Bangalore, India</b> - for those that don't know, it's considered the "Silicon Valley of India." It's where startups are born and you're always surrounded by talk of innovation and technology; a place rich in cultural diversity, known for its music and food, and one that will always be close to my heart.</p>
+          <p>I worked as a Data Engineer at <b>IQVIA</b>, Bangalore for three years before moving to Dallas for my Master's in Business Analytics and AI at <b>The University of Texas at Dallas</b>. It's safe to say the past five years have given me great clarity on what I love working on: (a) I love solving problems, and (b) I love working with data.</p>
+          <p>My long-term goal is to work in an industry that aligns with one of my passions - gaming, sports, music or technology. I value discipline and continuous learning, and love surrounding myself with people who push me to become the best version of myself every day.</p>
+          <h3 class="subhead">Hobbies &amp; Interests</h3>
+          <div class="interest-grid">
+            <button class="interest" type="button" data-modal="int-basketball"><span class="interest__icon">&#127936;</span><span class="interest__label">Basketball</span></button>
+            <button class="interest" type="button" data-modal="int-gaming"><span class="interest__icon">&#127918;</span><span class="interest__label">Gaming</span></button>
+            <button class="interest" type="button" data-modal="int-sports"><span class="interest__icon">&#128250;</span><span class="interest__label">Watching Sports</span></button>
+            <button class="interest" type="button" data-modal="int-music"><span class="interest__icon">&#127925;</span><span class="interest__label">Music</span></button>
+          </div>
+
+          <template id="int-basketball">
+            <div class="detail">
+              <h2 class="detail__title">&#127936; Basketball</h2>
+              <img class="detail__img" src="assets/basketball.jpeg" alt="Basketball team" loading="lazy" />
+              <p>I've been playing ball since the age of 11, and I've had the opportunity to represent various teams at the national, state and inter-school/university level. I've also had the opportunity to lead my University team and an A-division club in Karnataka as captain - which I believe makes me a semi-professional player &#128578; (a retired one though :/)</p>
+              <p>The game of ball has taught me a great deal about teamwork, grit, discipline and the willpower that's needed to never quit until the final whistle. There's nothing more that I miss right now than competing at a high level in the sport, but life has taken a different course and I'm excited for new challenges that lie ahead!</p>
+            </div>
+          </template>
+          <template id="int-gaming">
+            <div class="detail">
+              <h2 class="detail__title">&#127918; Gaming</h2>
+              <p>While I enjoy sports games such as FIFA or NBA 2K the most, I also indulge in multiple First Person Shooter or Role Playing Games such as Fortnite, Horizon Zero Dawn, Amazing Spiderman, and other popular names in the gaming space. Honestly though, I love playing any sort of game and like trying them all out!</p>
+              <p>When I look back to times as a kid, I remember growing up playing the online Pokemon game a lot (if you know about this please send me a message, we have GOT to talk); Nintendo games such as Pokemon Emerald/Sapphire/Ruby, Beyblade V-Force; and a bunch of other games that form core memories!</p>
+            </div>
+          </template>
+          <template id="int-sports">
+            <div class="detail">
+              <h2 class="detail__title">&#128250; Watching Sports</h2>
+              <p>There's almost nothing I enjoy more than watching sports. I follow Football (Soccer), Basketball, Cricket and Formula 1 the most, and I consciously have to make the effort to not get pulled towards more sports, but I like to keep myself up to date with news from different sports!</p>
+              <p>I'm a big <b>Manchester United</b> fan, as you can clearly see from the picture below.</p>
+              <img class="detail__img" src="assets/sports.jpeg" alt="Manchester United fan" loading="lazy" />
+            </div>
+          </template>
+          <template id="int-music">
+            <div class="detail">
+              <h2 class="detail__title">&#127925; Music</h2>
+              <p>I truly believe that if I have my earphones on and my music playing, I can take on anything in the world. I spend a lot of my time with Spotify running in the background - while studying, working out, driving or even doing chores. I have playlists for each mood and my music taste is all over the place - House, Rock, Alternative, R&amp;B, Rap, Hip-Hop, Pop, Bollywood and Regional South Indian music. I vibe to almost any genre, sometimes even when I don't understand the lyrics &#128541; and I highly value people that introduce me to new music :)</p>
+            </div>
+          </template>
+        </article>
+
+        <!-- SKILLS -->
+        <article class="panel" id="panel-skills" role="tabpanel" hidden>
+          <h2 class="panel__title">Skills</h2>
+          <div class="skill-grid">
+            <div class="skill-cat">
+              <h3>Programming</h3>
+              <ul class="tags"><li>SQL</li><li>Python</li><li>R</li><li>PySpark</li><li>NoSQL</li></ul>
+            </div>
+            <div class="skill-cat">
+              <h3>Data Engineering</h3>
+              <ul class="tags"><li>Snowflake</li><li>AWS</li><li>dbt</li><li>Microsoft Fabric</li><li>BigQuery</li><li>Hadoop</li><li>Spark</li><li>Airflow</li><li>Alteryx</li><li>SSIS</li><li>Data Modeling</li><li>Cloud Computing</li><li>ETL Development</li></ul>
+            </div>
+            <div class="skill-cat">
+              <h3>Data Analytics</h3>
+              <ul class="tags"><li>Tableau</li><li>Power BI</li><li>Excel</li><li>Hypothesis Testing</li><li>A/B Testing</li><li>Statistical Modeling</li><li>Machine Learning</li></ul>
+            </div>
+            <div class="skill-cat">
+              <h3>Soft Skills</h3>
+              <ul class="tags"><li>Communication</li><li>Leadership</li><li>Teamwork</li><li>Problem-Solving</li><li>Strategic Thinking</li></ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- EXPERIENCE -->
+        <article class="panel" id="panel-experience" role="tabpanel" hidden>
+          <h2 class="panel__title">Experience</h2>
+
+          <div class="xp is-current">
+            <div class="xp__head">
+              <div>
+                <h3 class="xp__role">Data &amp; AI Engineer <span class="xp__now">CURRENT</span></h3>
+                <p class="xp__org">FBS Group</p>
+              </div>
+              <p class="xp__date">Jul 2026 &ndash; Present</p>
+            </div>
+            <ul class="xp__points">
+              <li>Lead data operations in building a <b>retirement solutions platform</b> from scratch using AWS (S3, RDS, IAM, KMS, DynamoDB, Lambda, Bedrock, and more).</li>
+              <li>Gathered business requirements and designed data models for structured and unstructured data, and architected secure storage for PII across Dev/UAT/Prod environments, with tenant-isolated data access.</li>
+              <li>Automated account position and transaction data ingestion from <b>Altruist</b>, using <b>Temporal</b> to orchestrate reliable, fault-tolerant workflows.</li>
+            </ul>
+          </div>
+
+          <div class="xp">
+            <div class="xp__head">
+              <div>
+                <h3 class="xp__role">Data Engineer</h3>
+                <p class="xp__org">IQVIA</p>
+              </div>
+              <p class="xp__date">Aug 2021 &ndash; Jun 2024</p>
+            </div>
+            <ul class="xp__points">
+              <li>Generated <b>$3M in revenue</b> by leading database operations for a healthcare web-application and reporting project.</li>
+              <li>Optimized ETL pipelines handling up to <b>2TB</b> of data through SQL script optimization.</li>
+              <li>Managed 3 large-scale medical projects; resolved data-accuracy and pipeline issues across production and development servers.</li>
+              <li>Cut run-time <b>60.53%</b> (38h &rarr; 15h) by migrating a big-data ETL pipeline from SSIS to Hadoop.</li>
+              <li>Saved 30 minutes per run by automating a critical recurring ETL workflow.</li>
+              <li>Collaborated with front-end and QA teams to deliver three production-ready projects.</li>
+              <li>Partnered with stakeholders to translate requirements into ETL pipelines that supported the business.</li>
+              <li>Contributed to data-modeling discussions with the Senior Architect.</li>
+              <li>Trained <b>70+</b> participants by running an SQL workshop for the GMI business unit.</li>
+            </ul>
+            <div class="xp__awards">
+              <span class="award">&#127942; "Brightest Beginner" &mdash; Annual Award, GMI unit (2022)</span>
+              <span class="award">&#11088; Quarterly Spotlight Award (Apr 2023)</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- EDUCATION -->
+        <article class="panel" id="panel-education" role="tabpanel" hidden>
+          <h2 class="panel__title">Education</h2>
+          <div class="edu">
+            <div class="edu__head">
+              <h3>M.S. Business Analytics &amp; AI</h3>
+              <p class="edu__date">Aug 2024 &ndash; May 2026</p>
+            </div>
+            <p class="edu__org">The University of Texas at Dallas</p>
+          </div>
+          <div class="edu">
+            <div class="edu__head">
+              <h3>B.E. Industrial Engineering &amp; Management</h3>
+              <p class="edu__date">Aug 2017 &ndash; Jun 2021</p>
+            </div>
+            <p class="edu__org">R. V. College of Engineering, Bangalore</p>
+          </div>
+        </article>
+
+        <!-- PROJECTS -->
+        <article class="panel" id="panel-projects" role="tabpanel" hidden>
+          <h2 class="panel__title">Projects</h2>
+          <p class="panel__intro">Selected work. Tap a card to view the full write-up.</p>
+          <div class="card-grid">
+
+            <!-- 1. Customer Churn -->
+            <article class="card" tabindex="0" role="button" aria-haspopup="dialog">
+              <div class="card__body">
+                <h3 class="card__title">Customer Churn Analysis</h3>
+                <p class="card__sub">Graduate Capstone &middot; MS BA &amp; AI, UT Dallas</p>
+                <ul class="tags"><li>Python</li><li>XGBoost</li><li>SHAP</li><li>Power BI</li><li>Azure</li></ul>
+                <span class="card__more">View details &#9656;</span>
+              </div>
+              <template class="card__detail">
+                <div class="detail">
+                  <div class="detail__cover" style="background-image:url('assets/churn.png')"></div>
+                  <h2 class="detail__title">Customer Churn Analysis - Capstone</h2>
+                  <p class="detail__sub">Graduate Capstone Project, MS Business Analytics &amp; AI, UT Dallas</p>
+                  <ul class="tags"><li>Python</li><li>XGBoost</li><li>SHAP</li><li>Churn Analysis</li><li>Power BI</li><li>Azure (architecture)</li></ul>
+                  <h3 class="detail__h">Overview</h3>
+                  <p>FleetPride, a heavy-duty truck parts distributor, had no centralized view of customer purchasing behavior. Retention efforts only started after an account had already gone quiet. We built a proactive system that scores every customer's churn risk, explains why they're at risk, and tells branch managers who to call and which intervention to use.</p>
+                  <h3 class="detail__h">Data</h3>
+                  <p>We used 32 months of internal data (Jan 2023 to Aug 2025) from three sources across three branches: 419K transaction records, 231K product-category records, and 16K service work orders. From these we engineered 21 behavioral features per customer across five areas: lifetime history, purchase frequency, recent activity, spend trajectory, and service engagement. A customer counted as churned if they made no purchase in the six months after the observation cut-off.</p>
+                  <h3 class="detail__h">Approach</h3>
+                  <ul>
+                    <li><b>Churn classification:</b> Logistic Regression baseline vs. XGBoost, evaluated on PR-AUC (66% of the population had churned). XGBoost was chosen as champion for its calibration and native SHAP support.</li>
+                    <li><b>Survival analysis:</b> a Cox Proportional Hazards model and Kaplan-Meier curves estimate when customers are likely to leave, not just whether.</li>
+                    <li><b>Uplift modeling:</b> a T-Learner separates high-risk accounts likely to respond to outreach from those who won't, producing a four-quadrant targeting matrix.</li>
+                    <li><b>Explainability:</b> SHAP gives each customer's top three risk drivers in plain English.</li>
+                  </ul>
+                  <h3 class="detail__h">Results</h3>
+                  <ul>
+                    <li>XGBoost produced <b>0.89 PR-AUC</b>.</li>
+                    <li>The uplift model flagged <b>2,642 priority accounts</b> representing <b>$556K</b> in revenue at risk for immediate outreach.</li>
+                    <li>Service engagement was the strongest retention signal: service customers churned 8.3 points less - surfacing a <b>~$3.7M</b> annual revenue-protection opportunity at the highest-revenue branch (just 0.6% service penetration).</li>
+                    <li>Revenue was highly concentrated: ~88% came from the top 10% of accounts.</li>
+                  </ul>
+                  <h3 class="detail__h">Deliverables</h3>
+                  <ul>
+                    <li>Risk scores for all 5,719 customers.</li>
+                    <li>Branch-level ranked call lists, each with a recommended action: service conversion, reactivation, spend-drop investigation, or win-back.</li>
+                    <li>A four-page Power BI dashboard with customer health metrics, retention trends, and an intervention simulator.</li>
+                    <li>A proposed Azure-native production pipeline (Data Factory, ADLS Gen2, Synapse, MLflow) with monthly automated retraining.</li>
+                  </ul>
+                  <h3 class="detail__h">Power BI Dashboard</h3>
+                  <figure class="detail__fig"><img src="assets/churn-exec.png" alt="Executive Summary dashboard" loading="lazy" /><figcaption>Executive Summary - sales trends, repeat rate, LTV, customer mix</figcaption></figure>
+                  <figure class="detail__fig"><img src="assets/churn-retention.png" alt="Retention Model dashboard" loading="lazy" /><figcaption>Retention Model - risk tiers, churn scores, SHAP reason codes</figcaption></figure>
+                  <figure class="detail__fig"><img src="assets/churn-revenue.png" alt="Revenue at Risk dashboard" loading="lazy" /><figcaption>Revenue at Risk - spend-tier exposure and churn-vs-uplift targeting</figcaption></figure>
+                  <figure class="detail__fig"><img src="assets/churn-outreach.png" alt="Customer Outreach Actions dashboard" loading="lazy" /><figcaption>Customer Outreach Actions - call vs. skip lists for branch managers</figcaption></figure>
+                  <a class="btn btn--primary detail__link" href="https://github.com/rprashanth507/Customer_Churn_Analysis" target="_blank" rel="noopener noreferrer">GitHub Repo &#8599;</a>
+                </div>
+              </template>
+            </article>
+
+            <!-- 2. Alteryx Datathon -->
+            <article class="card" tabindex="0" role="button" aria-haspopup="dialog">
+              <div class="card__body">
+                <h3 class="card__title">Optimal Location Analysis</h3>
+                <p class="card__sub">Alteryx AI Datathon &middot; 5-hour competition</p>
+                <ul class="tags"><li>Alteryx</li><li>Gamma AI</li><li>Analytics</li></ul>
+                <span class="card__more">View details &#9656;</span>
+              </div>
+              <template class="card__detail">
+                <div class="detail">
+                  <div class="detail__cover" style="background-image:url('assets/alteryx.jpeg')"></div>
+                  <h2 class="detail__title">Optimal Location Analysis - Alteryx Datathon</h2>
+                  <p class="detail__sub">Work done for a 5-hour AI Datathon competition hosted by Alteryx. Tools: Alteryx (data processing), Gamma AI (slide deck).</p>
+                  <h3 class="detail__h">Problem Statement</h3>
+                  <p>RSM is planning its next company-wide conference and requires a data-driven recommendation for the optimal location based on employee proximity, travel logistics, and cost efficiency. Using employee listings and flight data, analyze centrality, accessibility, location suitability, and travel costs to suggest the most optimal location.</p>
+                  <h3 class="detail__h">Method</h3>
+                  <p>Calculate three scores for each location and combine them into a weighted final score, then rank the results.</p>
+                  <p><b>Proximity Score (35%)</b> - using the employee dataset, count how many people would need to travel to each location; the location requiring the fewest travelers scores highest.</p>
+                  <ul>
+                    <li>Num_Travelers = TotalCount &minus; CountByCity</li>
+                    <li>Proximity Score = 1 &minus; (Num_Travelers &minus; Min) / (Max &minus; Min)</li>
+                  </ul>
+                  <figure class="detail__fig"><img src="assets/alteryx-proximity.png" alt="Proximity score Alteryx pipeline" loading="lazy" /><figcaption>Alteryx pipeline - Proximity Score</figcaption></figure>
+                  <p><b>Cost Efficiency Score (25%)</b> - joining the flight and employee data, compute the cost of flying people out of each location. Bill rate is included so we reduce movement of employees from cities with a higher average bill rate, making efficient use of their time.</p>
+                  <ul>
+                    <li>Total Cost = (Avg_Market_Fare &times; Employee_Count) + (Avg_Bill_Rate &times; Employee_Count)</li>
+                  </ul>
+                  <figure class="detail__fig"><img src="assets/alteryx-cost.png" alt="Cost efficiency Alteryx pipeline" loading="lazy" /><figcaption>Alteryx pipeline - Cost Efficiency</figcaption></figure>
+                  <p><b>Flight Connectivity Score (40%)</b> - due to the time limit during the competition, we asked an LLM (ChatGPT) to rate airport connectivity for each city on a 0-1 scale.</p>
+                  <h3 class="detail__h">Conclusion</h3>
+                  <p><b>Dallas</b> emerged as the optimal city to host the conference. It makes practical sense too: Dallas is centrally positioned relative to the other cities, minimizing overall travel, and the higher concentration of companies in the area makes the recommendation both data-driven and realistically actionable.</p>
+                  <a class="btn btn--primary detail__link" href="https://github.com/rprashanth507/Alteryx-Contest" target="_blank" rel="noopener noreferrer">GitHub Repo &#8599;</a>
+                </div>
+              </template>
+            </article>
+
+            <!-- 3. Big Data -->
+            <article class="card" tabindex="0" role="button" aria-haspopup="dialog">
+              <div class="card__body">
+                <h3 class="card__title">Identifying Risky Drivers</h3>
+                <p class="card__sub">Big Data Project</p>
+                <ul class="tags"><li>Hadoop</li><li>Hive</li><li>Pig</li><li>Power BI</li></ul>
+                <span class="card__more">View details &#9656;</span>
+              </div>
+              <template class="card__detail">
+                <div class="detail">
+                  <div class="detail__cover" style="background-image:url('assets/bigdata.jpg')"></div>
+                  <h2 class="detail__title">Identifying Risky Drivers - Big Data Project</h2>
+                  <p class="detail__sub">Tools: Hadoop + Power BI</p>
+                  <h3 class="detail__h">Project Requirement</h3>
+                  <p>Accidents caused by large trucks remain one of the leading causes of injuries and deaths in the United States. The objective is to identify risky commercial truck drivers nationwide using the Hadoop ecosystem to store and process the data.</p>
+                  <h3 class="detail__h">Workflow</h3>
+                  <ul>
+                    <li>Load the source CSV files onto HDFS.</li>
+                    <li>Create Hive tables and populate them with the required data.</li>
+                    <li>Use a Pig script to calculate a risk factor for each driver.</li>
+                    <li>Connect the tables to Power BI and build visualizations to break down the situation for stakeholders.</li>
+                  </ul>
+                  <figure class="detail__fig"><img src="assets/bigdata-arch.png" alt="Big data architecture" loading="lazy" /><figcaption>CSV files &rarr; Hadoop (HDFS) &rarr; Hive tables &rarr; Pig risk-factor calculation &rarr; Power BI</figcaption></figure>
+                  <p>The risk factor for each driver is calculated as:</p>
+                  <figure class="detail__fig detail__fig--formula"><img src="assets/bigdata-formula.png" alt="Risk factor formula" loading="lazy" /></figure>
+                  <h3 class="detail__h">Findings</h3>
+                  <ul>
+                    <li><b>Risk by event:</b> lane departure and unsafe following distance alone contribute to over 66% of all unsafe events - the top focus areas for driver training and monitoring.</li>
+                    <li><b>Risk by city:</b> Santa Rosa and Willits together account for over 38% of total risk events, indicating concentrated hotspots in Northern California.</li>
+                    <li><b>Risk by driver:</b> Driver A97 registers the highest cumulative risk factor. High-risk drivers outnumber low-risk ones nearly 6:1, underscoring the urgency for targeted safety interventions.</li>
+                  </ul>
+                  <div class="detail__charts">
+                    <img src="assets/bigdata-event.png" alt="Risk by event" loading="lazy" />
+                    <img src="assets/bigdata-city.png" alt="Risk by city" loading="lazy" />
+                    <img src="assets/bigdata-driver.png" alt="Risk by driver" loading="lazy" />
+                    <img src="assets/bigdata-risklevel.png" alt="Risk level distribution" loading="lazy" />
+                    <img src="assets/bigdata-map-north.png" alt="Risk hotspots - Northern California" loading="lazy" />
+                    <img src="assets/bigdata-map-south.png" alt="Risk hotspots - Southern California" loading="lazy" />
+                  </div>
+                  <h3 class="detail__h">Recommendations</h3>
+                  <ul>
+                    <li>Deploy dash-cams to detect lane drift and unsafe following distances, triggering alarms.</li>
+                    <li>Introduce awards like "Safest Driver of the Month" or "Zero Violation Streak" bonuses.</li>
+                    <li>Provide regular safety training on speed control, defensive driving, and lane discipline.</li>
+                  </ul>
+                  <a class="btn btn--primary detail__link" href="https://github.com/rprashanth507/Big-Data-Project" target="_blank" rel="noopener noreferrer">GitHub Repo &#8599;</a>
+                </div>
+              </template>
+            </article>
+
+            <!-- 4. AI Creativity Research -->
+            <article class="card" tabindex="0" role="button" aria-haspopup="dialog">
+              <div class="card__body">
+                <h3 class="card__title">Analysing Creativity of AI Models</h3>
+                <p class="card__sub">Research Paper &middot; Creativity &amp; reasoning via gamification</p>
+                <ul class="tags"><li>LLMs</li><li>GPT-4</li><li>Gemini 2.5</li><li>Python</li></ul>
+                <span class="card__more">View details &#9656;</span>
+              </div>
+              <template class="card__detail">
+                <div class="detail">
+                  <div class="detail__cover" style="background-image:url('assets/ai-creativity.png')"></div>
+                  <h2 class="detail__title">Analysing Creativity of AI Models</h2>
+                  <p class="detail__sub">Evaluating AI Creativity and Reasoning Through Gamification</p>
+                  <p>AI models today can generate text, write code, and solve complex problems. But an important question remains: how creative are these systems, and how well can they reason when collaborating with other AI agents? To explore this, we designed an experimental benchmark that evaluates the creativity and reasoning abilities of large language models through gamification, using the word-association game <b>Codenames</b> as the testing environment.</p>
+                  <h3 class="detail__h">Research Objective</h3>
+                  <ul>
+                    <li>How does prompting affect AI creativity and reasoning?</li>
+                    <li>How well do different AI models perform in a word-association game such as Codenames?</li>
+                  </ul>
+                  <p>We evaluated GPT-4 and Gemini 2.5 under different prompting conditions.</p>
+                  <h3 class="detail__h">Experimental Setup</h3>
+                  <p>We built a custom Python Codenames simulation where LLMs played against each other as Spymaster and Guesser agents on a standard 5 x 5 board (25 words: team targets, neutral words, and a single assassin word). The Spymaster generated a one-word clue with a number (e.g. "Bridge: 2"); the Guesser identified words based on that clue. We tested four prompting configurations - No Prompt (baseline), Spectrum Lens, Three Bridges, and Role Shifting - across 100 games per model each, for 600 total runs.</p>
+                  <h3 class="detail__h">Key Findings</h3>
+                  <p>Prompting does not necessarily improve accuracy, but it significantly changes how AI models think and reason. Win rates stayed relatively stable (GPT-4 ~62.8% baseline / ~61.9% prompted; Gemini 2.5 ~55.3% / ~56.7%), while behavioral metrics shifted a lot:</p>
+                  <ul>
+                    <li>Prompting increased lexical diversity, especially for Gemini (large increase in clue entropy).</li>
+                    <li>Semantic risk decreased under structured prompting - models became more careful about clues that could lead to the assassin word.</li>
+                    <li>Gemini became significantly more exploratory and abstract when prompted; GPT-4 stayed stable thanks to its already-strong baseline reasoning.</li>
+                  </ul>
+                  <p>These results suggest prompting acts as a cognitive framing mechanism, shaping how models explore conceptual relationships rather than simply improving task accuracy.</p>
+                  <p class="detail__cite">Paper: "Prompting Creativity: Analyzing the Impact of Prompt Engineering Philosophies on AI Gameplay in Codenames"</p>
+                </div>
+              </template>
+            </article>
+
+            <!-- 5. Healthcare Costs -->
+            <article class="card" tabindex="0" role="button" aria-haspopup="dialog">
+              <div class="card__body">
+                <h3 class="card__title">Predicting Healthcare Costs</h3>
+                <p class="card__sub">Applied Machine Learning project</p>
+                <ul class="tags"><li>Python</li><li>XGBoost</li><li>LightGBM</li><li>Optuna</li><li>SHAP</li></ul>
+                <span class="card__more">View details &#9656;</span>
+              </div>
+              <template class="card__detail">
+                <div class="detail">
+                  <div class="detail__cover" style="background-image:url('assets/healthcare.jpg')"></div>
+                  <h2 class="detail__title">Predicting Healthcare Costs</h2>
+                  <p class="detail__sub">Part of the Applied Machine Learning course project</p>
+                  <h3 class="detail__h">Overview</h3>
+                  <p>The project predicts annual medical costs for individuals based on their demographics, health conditions, lifestyle, and insurance attributes. The dataset contained 100,000 samples and 54 features, providing a comprehensive basis for regression modeling and healthcare cost analysis.</p>
+                  <h3 class="detail__h">Phase Breakdown</h3>
+                  <ul>
+                    <li><b>Setup:</b> integrated the entire ML workflow in a single Jupyter Notebook with structured directories for data, models, and reports.</li>
+                    <li><b>Data Understanding &amp; EDA:</b> statistical summaries, correlation heatmaps, and distributions; identified annual_medical_cost as the target and handled multicollinearity in insurance-related fields.</li>
+                    <li><b>Preprocessing &amp; Feature Engineering:</b> One-Hot and Ordinal encoding, StandardScaler for continuous variables, and engineered features such as chronic_total and has_multiple_chronic; split into train/validation/test.</li>
+                    <li><b>Model Development:</b> Linear, Ridge, Lasso, and ElasticNet baselines; tree-based Random Forest, XGBoost, and LightGBM; tuned XGBoost with Optuna. Reported MAE, RMSE, and R&#178;.</li>
+                    <li><b>Explainability:</b> SHAP for feature importance and interpretability, with dependence plots and narrative insights on model behavior and fairness.</li>
+                    <li><b>Deployment &amp; Reporting:</b> saved the final model, preprocessing pipeline, and timestamped reports; built a reusable load_model_and_predict() function and automated JSON/CSV summaries for reproducibility.</li>
+                  </ul>
+                  <h3 class="detail__h">Impact</h3>
+                  <p>The model effectively captures health, lifestyle, and socioeconomic influences on medical costs; SHAP confirmed transparency and trustworthiness; and the entire workflow is containerized, version-controlled, and ready for API or dashboard integration.</p>
+                  <a class="btn btn--primary detail__link" href="https://github.com/rprashanth507/Applied-Machine-Learning-Project" target="_blank" rel="noopener noreferrer">GitHub Repo &#8599;</a>
+                </div>
+              </template>
+            </article>
+
+          </div>
+        </article>
+
+        <!-- LEADERSHIP -->
+        <article class="panel" id="panel-leadership" role="tabpanel" hidden>
+          <h2 class="panel__title">Leadership</h2>
+          <p class="panel__intro">Roles and moments where I led. Tap a card to read more.</p>
+          <div class="card-grid">
+
+            <!-- Envision -->
+            <article class="card" tabindex="0" role="button" aria-haspopup="dialog">
+              <div class="card__cover card__cover--contain" style="background-image:url('assets/envision.jpeg')"></div>
+              <div class="card__body">
+                <h3 class="card__title">President, Envision</h3>
+                <p class="card__sub">Data Visualization Club, JSOM &middot; May 2025 - Apr 2026</p>
+                <ul class="tags"><li>Leadership</li><li>Events</li><li>Community</li></ul>
+                <span class="card__more">View details &#9656;</span>
+              </div>
+              <template class="card__detail">
+                <div class="detail">
+                  <div class="detail__cover detail__cover--contain" style="background-image:url('assets/envision.jpeg')"></div>
+                  <h2 class="detail__title">President, Envision</h2>
+                  <p class="detail__sub">Data Visualization Club of JSOM, UT Dallas &middot; May 2025 - April 2026</p>
+                  <p>Envision is the Data Visualization Club of JSOM, UT Dallas. I started as an officer in my first semester and was promoted to President in my third. It gave me the opportunity to lead an amazing team and an important organization within JSOM, hosting data and technology workshops and competitions that attract hundreds of students from across the university. The club has given me some great friends and a lot of memories to take with me :')</p>
+                  <div class="detail__gallery">
+                    <img src="assets/envision-datawhiz.jpg" alt="Envision Datawhiz hackathon" loading="lazy" />
+                    <img src="assets/envision-vizquest.jpeg" alt="Envision VizQuest hackathon" loading="lazy" />
+                    <img src="assets/envision-tableau.jpeg" alt="Envision Tableau bootcamp" loading="lazy" />
+                    <img src="assets/tri-event.jpeg" alt="TRI Tableau workshop" loading="lazy" />
+                  </div>
+                  <h3 class="detail__h">Highlights</h3>
+                  <ul>
+                    <li>Served as an instructor for a two-day Tableau workshop hosted by Envision for Transfer Research Initiative (TRI) students who transferred to UTD from colleges across the country - demonstrating the applications of data visualization across disciplines and teaching students to build clear, engaging dashboards.</li>
+                    <li>Organized a two-day Tableau workshop in Fall 2025 led by Prof. Gaurav Shekhar. The event attracted ~100 participants from various majors, promoting hands-on learning in data visualization.</li>
+                    <li>Helped organize the club's semesterly data hackathons on real-world problem statements: Datawhiz (Spring 2025), VizQuest (Fall 2025), and Data Grand Prix (Spring 2026).</li>
+                    <li>Coordinated the Envision Mixer, a networking event connecting club members with Envision x UTD alumni working at companies such as 7-Eleven, Goldman Sachs, and Brinks Home.</li>
+                  </ul>
+                </div>
+              </template>
+            </article>
+
+            <!-- Nash Leader -->
+            <article class="card" tabindex="0" role="button" aria-haspopup="dialog">
+              <div class="card__cover card__cover--contain" style="background-image:url('assets/nash.png')"></div>
+              <div class="card__body">
+                <h3 class="card__title">JSOM Nash Leader</h3>
+                <p class="card__sub">Naveen Jindal School of Management &middot; B/O 2026</p>
+                <ul class="tags"><li>Leadership</li><li>Honors</li></ul>
+                <span class="card__more">View details &#9656;</span>
+              </div>
+              <template class="card__detail">
+                <div class="detail">
+                  <div class="detail__cover detail__cover--contain" style="background-image:url('assets/nash.png')"></div>
+                  <h2 class="detail__title">JSOM Nash Leader</h2>
+                  <p class="detail__sub">Naveen Jindal School of Management (JSOM), UT Dallas &middot; B/O 2026</p>
+                  <p>I had the honor of graduating as a JSOM Nash Leader in May 2026! The Nash Leaders Program is designed to develop the leadership potential of high-performing students by providing opportunities to engage with C-suite executives and business leaders, learn from their journeys, and gain insights into effective leadership.</p>
+                  <p>To qualify for the program, students must hold a leadership position in a JSOM student organization and rank within the top 20% of the JSOM cohort by GPA.</p>
+                  <p>Being part of this program gave me the opportunity to learn from accomplished leaders, hear about their career journeys firsthand, and reflect on what it means to lead with purpose and impact. I'm grateful to JSOM and everyone involved for the experience and the lessons I'll carry forward in my career.</p>
+                  <img class="detail__img" src="assets/nash-graduation.jpg" alt="Nash Leader graduation" loading="lazy" />
+                  <a class="btn btn--primary detail__link" href="https://jindal.utdallas.edu/honors-programs/nash-leaders-program/" target="_blank" rel="noopener noreferrer">Nash Leaders Program &#8599;</a>
+                </div>
+              </template>
+            </article>
+
+          </div>
+        </article>
+
+        <!-- CONTACT -->
+        <article class="panel" id="panel-contact" role="tabpanel" hidden>
+          <h2 class="panel__title">Contact</h2>
+          <p class="panel__intro">Let's build something. Reach me here:</p>
+          <ul class="contact-list">
+            <li>
+              <span class="contact-list__k">Email</span>
+              <a href="mailto:rprashanth0012@gmail.com">rprashanth0012@gmail.com</a>
+            </li>
+            <li>
+              <span class="contact-list__k">LinkedIn</span>
+              <a href="https://www.linkedin.com/in/prash012/" target="_blank" rel="noopener noreferrer">linkedin.com/in/prash012</a>
+            </li>
+            <li>
+              <span class="contact-list__k">GitHub</span>
+              <a href="https://github.com/rprashanth507" target="_blank" rel="noopener noreferrer">github.com/rprashanth507</a>
+            </li>
+          </ul>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <!-- Detail popup -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-label="Details">
+      <button class="modal__close" type="button" data-close aria-label="Close">&#10005;</button>
+      <div class="modal__body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Background music (starts after the entry gesture) -->
+  <audio id="bg-music" src="assets/music.mp3" preload="auto"></audio>
+
+  <script src="js/main.js?v=23"></script>
+  <!-- fonts: Exo 2 + Inter -->
+</body>
+</html>

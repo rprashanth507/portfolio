@@ -1,0 +1,18 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# Local tooling
+.claude/
+node_modules/
+
+# Source content / backups (not part of the published site)
+*.docx
+*.doc
+*.bak
+*.tmp
+~$*
+~WRL*
+assets/profile-full.jpg
