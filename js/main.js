@@ -246,16 +246,30 @@
     if (lead) lead.insertAdjacentElement("afterend", prompt);
     const showT = setTimeout(() => { prompt.classList.add("in"); try { prompt.focus({ preventScroll: true }); } catch (e) {} }, leadDur + 700);
 
-    function advance() {
+    // Freeze everything to its final static state so it never re-animates on return visits.
+    function commitIntro() {
       clearTimeout(showT);
       finishIntro = null;
+      home.querySelectorAll(".reveal-word").forEach((s) => { s.style.animation = "none"; s.style.opacity = "1"; });
+      if (cta) { cta.classList.remove("intro-hidden", "reveal-cta"); cta.style.animation = "none"; cta.style.opacity = "1"; }
+      if (photo) photo.style.animation = "none";
+      const p = home.querySelector(".home__continue");
+      if (p) p.remove();
+    }
+
+    let advanced = false;
+    function advance() {
+      if (advanced) return;
+      advanced = true;
+      clearTimeout(showT);
       prompt.classList.add("out");
-      setTimeout(() => prompt.remove(), 320);
+      setTimeout(() => { if (prompt.parentNode) prompt.remove(); }, 320);
       reveal(restWords);
       if (cta) { cta.classList.remove("intro-hidden"); cta.classList.add("reveal-cta"); cta.style.animationDelay = (restWords.length * STEP + 250) + "ms"; }
+      setTimeout(commitIntro, restWords.length * STEP + 1000);
     }
     prompt.addEventListener("click", () => { sfx.select(); advance(); });
-    finishIntro = advance; // if the user navigates away first, reveal the rest so it isn't stuck hidden
+    finishIntro = commitIntro; // navigating away (or back) freezes the intro in its final state
   }
 
   // Custom rAF smooth-scroll (reliable: not cancelled by the button's focus,
