@@ -8,17 +8,24 @@
   <meta name="theme-color" content="#050a14" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph / link-preview card -->
   <meta property="og:title" content="Prashanth Reddy - Data Engineer" />
   <meta property="og:description" content="Data Engineer & Data Analyst. Building end-to-end data solutions." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/banner.png" />
+  <meta property="og:url" content="https://rprashanth507.github.io/portfolio/" />
+  <meta property="og:image" content="https://rprashanth507.github.io/portfolio/assets/og-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Prashanth Reddy - Data Engineer" />
+  <meta name="twitter:description" content="Data Engineer & Data Analyst. Building end-to-end data solutions." />
+  <meta name="twitter:image" content="https://rprashanth507.github.io/portfolio/assets/og-card.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=27" />
+  <link rel="stylesheet" href="css/styles.css?v=28" />
 </head>
 <body>
   <!-- Animated space background -->
@@ -61,16 +68,13 @@
       </div>
       <div class="topbar__controls">
         <span class="nowplaying" id="nowplaying" tabindex="0" aria-label="Now playing">
-          <img class="nowplaying__cover" id="track-cover" src="assets/cover-drawings.png" alt="" />
-          <span class="nowplaying__meta">
-            <span id="track-name" class="nowplaying__title">Drawings</span>
-            <span id="track-artist" class="nowplaying__artist">Nikita Kondrashev</span>
-          </span>
+          <span class="nowplaying__icon" aria-hidden="true">&#9835;</span>
+          <span id="track-name">Drawings</span>
           <span class="nowplaying__tip" id="track-tip" role="tooltip">Drawings &mdash; Nikita Kondrashev</span>
         </span>
         <div class="player-controls">
           <button id="prev-track" class="transport" type="button" title="Previous song (P)" aria-label="Previous song"><span aria-hidden="true">&#9198;</span></button>
-          <button id="play-toggle" class="transport transport--play" type="button" title="Play / pause (K)" aria-label="Pause music"><span id="play-icon" aria-hidden="true">&#9208;</span></button>
+          <button id="play-toggle" class="transport transport--play" type="button" title="Play / pause (K)" aria-label="Play music"><span id="play-icon" aria-hidden="true">&#9654;</span></button>
           <button id="next-track" class="transport" type="button" title="Next song (N)" aria-label="Next song"><span aria-hidden="true">&#9197;</span></button>
         </div>
       </div>
@@ -107,6 +111,7 @@
               <div class="cta-row">
                 <button class="btn btn--primary" data-goto="projects">View Projects &#9656;</button>
                 <button class="btn" data-goto="contact">Get in touch</button>
+                <a class="btn btn--ghost" href="assets/Prashanth_Reddy_Resume.pdf" target="_blank" rel="noopener noreferrer">R&eacute;sum&eacute; &#8595;</a>
               </div>
             </div>
             <aside class="home__photo">
@@ -539,6 +544,10 @@
               <span class="contact-list__k">GitHub</span>
               <a href="https://github.com/rprashanth507" target="_blank" rel="noopener noreferrer">github.com/rprashanth507</a>
             </li>
+            <li>
+              <span class="contact-list__k">R&eacute;sum&eacute;</span>
+              <a href="assets/Prashanth_Reddy_Resume.pdf" target="_blank" rel="noopener noreferrer">Download PDF &#8595;</a>
+            </li>
           </ul>
         </article>
       </section>
@@ -557,7 +566,7 @@
   <!-- Background music (starts after the entry gesture) -->
   <audio id="bg-music" src="assets/music.mp3" preload="auto"></audio>
 
-  <script src="js/main.js?v=25"></script>
+  <script src="js/main.js?v=26"></script>
   <!-- fonts: Exo 2 + Inter -->
 </body>
 </html>

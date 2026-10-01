@@ -19,8 +19,6 @@
   const prevBtn    = document.getElementById("prev-track");
   const nextBtn    = document.getElementById("next-track");
   const trackName  = document.getElementById("track-name");
-  const trackArtist= document.getElementById("track-artist");
-  const trackCover = document.getElementById("track-cover");
   const trackTip   = document.getElementById("track-tip");
   const items      = Array.from(document.querySelectorAll(".menu__item"));
   const panels     = Array.from(document.querySelectorAll(".panel"));
@@ -73,11 +71,11 @@
      MUSIC  (playlist + transport controls)
      ============================================================ */
   const PLAYLIST = [
-    { src: "assets/music.mp3",                             title: "Drawings",        artist: "Nikita Kondrashev", cover: "assets/cover-drawings.png" },
-    { src: "assets/leberch-soft-piano-589658.mp3",         title: "Soft Piano",      artist: "Leberch",           cover: "assets/cover-soft.png" },
-    { src: "assets/atlasaudio-nostalgic-piano-520047.mp3", title: "Nostalgic Piano", artist: "AtlasAudio",        cover: "assets/cover-nostalgic.png" },
-    { src: "assets/leberch-minimal-piano-590996.mp3",      title: "Minimal Piano",   artist: "Leberch",           cover: "assets/cover-minimal.png" },
-    { src: "assets/leberch-piano-580522.mp3",              title: "Piano",           artist: "Leberch",           cover: "assets/cover-piano.png" }
+    { src: "assets/music.mp3",                             title: "Drawings",        artist: "Nikita Kondrashev" },
+    { src: "assets/leberch-soft-piano-589658.mp3",         title: "Soft Piano",      artist: "Leberch" },
+    { src: "assets/atlasaudio-nostalgic-piano-520047.mp3", title: "Nostalgic Piano", artist: "AtlasAudio" },
+    { src: "assets/leberch-minimal-piano-590996.mp3",      title: "Minimal Piano",   artist: "Leberch" },
+    { src: "assets/leberch-piano-580522.mp3",              title: "Piano",           artist: "Leberch" }
   ];
   const PLAY_GLYPH = "▶";   // ▶
   const PAUSE_GLYPH = "⏸";  // ⏸
@@ -98,8 +96,6 @@
   function showTrack() {
     const t = PLAYLIST[trackIdx];
     if (trackName) trackName.textContent = t.title;
-    if (trackArtist) trackArtist.textContent = t.artist;
-    if (trackCover && t.cover) trackCover.src = t.cover;
     if (trackTip) trackTip.textContent = t.title + " — " + t.artist;
   }
   function loadTrack(i) {
@@ -110,6 +106,7 @@
   function playCurrent() {
     if (!music.volume) music.volume = 0.35;
     rememberPaused(false);
+    if (playBtn) playBtn.classList.remove("hint");   // first tap starts it; drop the nudge
     music.play().then(updatePlayIcon).catch(updatePlayIcon);
     updatePlayIcon();
   }
@@ -130,17 +127,11 @@
   music.addEventListener("pause", updatePlayIcon);
 
   function startMusic() {
+    // Tap to play: load the first track but stay paused until the user taps play.
     loadTrack(0);
-    rememberPaused(false);   // entering the site always starts the music
-    music.volume = 0.0;
-    music.play().then(() => {
-      updatePlayIcon();
-      const target = 0.35, stepv = target / 40;
-      const id = setInterval(() => {
-        music.volume = Math.min(target, music.volume + stepv);
-        if (music.volume >= target) clearInterval(id);
-      }, 40);
-    }).catch(updatePlayIcon);
+    music.volume = 0.35;
+    updatePlayIcon();                               // shows the play (triangle) glyph
+    if (playBtn) playBtn.classList.add("hint");     // pulse the button to invite a tap
   }
 
   if (playBtn) playBtn.addEventListener("click", () => { sfx.select(); togglePlay(); });

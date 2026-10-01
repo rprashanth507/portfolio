@@ -178,18 +178,14 @@ body {
 /* Now playing + transport controls */
 .nowplaying {
   position: relative;
-  display: inline-flex; align-items: center; gap: 11px;
-  font-family: var(--font-ui); letter-spacing: 0.02em;
-  max-width: 240px; margin-right: 10px;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-ui); font-size: 0.94rem; letter-spacing: 0.03em;
+  color: var(--muted);
+  max-width: 220px; margin-right: 8px;
   cursor: default; outline: none;
 }
-.nowplaying__cover {
-  width: 42px; height: 42px; border-radius: 9px; flex: none;
-  border: 1px solid var(--line); box-shadow: 0 2px 10px rgba(0,0,0,0.45);
-}
-.nowplaying__meta { display: flex; flex-direction: column; min-width: 0; line-height: 1.2; }
-.nowplaying__title { color: var(--text); font-weight: 600; font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px; }
-.nowplaying__artist { color: var(--muted); font-size: 0.74rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px; }
+.nowplaying__icon { color: var(--accent-2); font-size: 1.08rem; line-height: 1; }
+#track-name { color: var(--text); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px; }
 .nowplaying__tip {
   position: absolute; top: calc(100% + 8px); left: 0;
   white-space: nowrap;
@@ -225,6 +221,13 @@ body {
 }
 .transport--play > span { font-size: 1.02rem; color: #04121f; }
 .transport--play:hover { filter: brightness(1.1); transform: translateY(-1px); }
+/* Invite the first tap to start the music */
+.transport--play.hint { animation: playpulse 1.5s ease-in-out infinite; }
+@keyframes playpulse {
+  0%, 100% { transform: scale(1); box-shadow: var(--glow); }
+  50% { transform: scale(1.14); box-shadow: 0 0 20px rgba(78,168,255,0.75); }
+}
+@media (prefers-reduced-motion: reduce) { .transport--play.hint { animation: none; } }
 
 @media (max-width: 760px) { .nowplaying { display: none; } }
 
@@ -388,6 +391,9 @@ b { color: #fff; }
 }
 .btn:hover { background: rgba(78,168,255,0.16); border-color: var(--accent); transform: translateY(-2px); }
 .btn:active { transform: translateY(0) scale(0.98); }
+a.btn { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
+.btn--ghost { background: transparent; border-color: var(--accent); color: var(--accent-2); }
+.btn--ghost:hover { background: rgba(78,168,255,0.12); color: #fff; }
 .btn--primary { background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #041020; border-color: transparent; box-shadow: var(--glow); }
 .btn--primary:hover { filter: brightness(1.08); }
 
