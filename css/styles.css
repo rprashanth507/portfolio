@@ -178,13 +178,18 @@ body {
 /* Now playing + transport controls */
 .nowplaying {
   position: relative;
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--font-ui); font-size: 0.82rem; letter-spacing: 0.05em;
-  color: var(--muted); max-width: 200px; margin-right: 6px;
+  display: inline-flex; align-items: center; gap: 11px;
+  font-family: var(--font-ui); letter-spacing: 0.02em;
+  max-width: 240px; margin-right: 10px;
   cursor: default; outline: none;
 }
-.nowplaying__icon { color: var(--accent-2); animation: pulse 2.4s ease-in-out infinite; }
-#track-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nowplaying__cover {
+  width: 42px; height: 42px; border-radius: 9px; flex: none;
+  border: 1px solid var(--line); box-shadow: 0 2px 10px rgba(0,0,0,0.45);
+}
+.nowplaying__meta { display: flex; flex-direction: column; min-width: 0; line-height: 1.2; }
+.nowplaying__title { color: var(--text); font-weight: 600; font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px; }
+.nowplaying__artist { color: var(--muted); font-size: 0.74rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px; }
 .nowplaying__tip {
   position: absolute; top: calc(100% + 8px); left: 0;
   white-space: nowrap;

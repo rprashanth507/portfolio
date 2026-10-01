@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=26" />
+  <link rel="stylesheet" href="css/styles.css?v=27" />
 </head>
 <body>
   <!-- Animated space background -->
@@ -61,8 +61,11 @@
       </div>
       <div class="topbar__controls">
         <span class="nowplaying" id="nowplaying" tabindex="0" aria-label="Now playing">
-          <span class="nowplaying__icon" aria-hidden="true">&#9835;</span>
-          <span id="track-name">Drawings</span>
+          <img class="nowplaying__cover" id="track-cover" src="assets/cover-drawings.png" alt="" />
+          <span class="nowplaying__meta">
+            <span id="track-name" class="nowplaying__title">Drawings</span>
+            <span id="track-artist" class="nowplaying__artist">Nikita Kondrashev</span>
+          </span>
           <span class="nowplaying__tip" id="track-tip" role="tooltip">Drawings &mdash; Nikita Kondrashev</span>
         </span>
         <div class="player-controls">
@@ -554,7 +557,7 @@
   <!-- Background music (starts after the entry gesture) -->
   <audio id="bg-music" src="assets/music.mp3" preload="auto"></audio>
 
-  <script src="js/main.js?v=24"></script>
+  <script src="js/main.js?v=25"></script>
   <!-- fonts: Exo 2 + Inter -->
 </body>
 </html>
