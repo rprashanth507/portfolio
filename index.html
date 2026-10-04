@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=28" />
+  <link rel="stylesheet" href="css/styles.css?v=29" />
 </head>
 <body>
   <!-- Animated space background -->
@@ -45,6 +45,7 @@
         <span class="entry__prompt-text">Press <b>X</b> or tap to continue</span>
         <span class="entry__caret" aria-hidden="true">&#9656;</span>
       </button>
+      <p class="entry__note"><span class="entry__note-icon" aria-hidden="true">&#9835;</span> Music will play when you tap in</p>
 
     </div>
   </section>
@@ -74,7 +75,7 @@
         </span>
         <div class="player-controls">
           <button id="prev-track" class="transport" type="button" title="Previous song (P)" aria-label="Previous song"><span aria-hidden="true">&#9198;</span></button>
-          <button id="play-toggle" class="transport transport--play" type="button" title="Play / pause (K)" aria-label="Play music"><span id="play-icon" aria-hidden="true">&#9654;</span></button>
+          <button id="play-toggle" class="transport transport--play" type="button" title="Play / pause (K)" aria-label="Pause music"><span id="play-icon" aria-hidden="true">&#9208;</span></button>
           <button id="next-track" class="transport" type="button" title="Next song (N)" aria-label="Next song"><span aria-hidden="true">&#9197;</span></button>
         </div>
       </div>
@@ -203,7 +204,7 @@
             <ul class="xp__points">
               <li>Lead data operations in building a <b>retirement solutions platform</b> from scratch using AWS (S3, RDS, IAM, KMS, DynamoDB, Lambda, Bedrock, and more).</li>
               <li>Gathered business requirements and designed data models for structured and unstructured data, and architected secure storage for PII across Dev/UAT/Prod environments, with tenant-isolated data access.</li>
-              <li>Automated account position and transaction data ingestion from <b>Altruist</b>, using <b>Temporal</b> to orchestrate reliable, fault-tolerant workflows.</li>
+              <li>Automated account position and transaction data ingestion from <b>Altruist</b>, using <b>Temporal</b> Orchestration and enabled insights into account performance for clients.</li>
             </ul>
           </div>
 
@@ -312,14 +313,14 @@
               <div class="card__body">
                 <h3 class="card__title">Optimal Location Analysis</h3>
                 <p class="card__sub">Alteryx AI Datathon &middot; 5-hour competition</p>
-                <ul class="tags"><li>Alteryx</li><li>Gamma AI</li><li>Analytics</li></ul>
+                <ul class="tags"><li>Alteryx</li><li>Data Analytics</li></ul>
                 <span class="card__more">View details &#9656;</span>
               </div>
               <template class="card__detail">
                 <div class="detail">
                   <div class="detail__cover" style="background-image:url('assets/alteryx.jpeg')"></div>
                   <h2 class="detail__title">Optimal Location Analysis - Alteryx Datathon</h2>
-                  <p class="detail__sub">Work done for a 5-hour AI Datathon competition hosted by Alteryx. Tools: Alteryx (data processing), Gamma AI (slide deck).</p>
+                  <p class="detail__sub">Work done for a 5-hour AI Datathon competition hosted by Alteryx. Tools: Alteryx (data processing).</p>
                   <h3 class="detail__h">Problem Statement</h3>
                   <p>RSM is planning its next company-wide conference and requires a data-driven recommendation for the optimal location based on employee proximity, travel logistics, and cost efficiency. Using employee listings and flight data, analyze centrality, accessibility, location suitability, and travel costs to suggest the most optimal location.</p>
                   <h3 class="detail__h">Method</h3>
@@ -434,7 +435,7 @@
               <div class="card__body">
                 <h3 class="card__title">Predicting Healthcare Costs</h3>
                 <p class="card__sub">Applied Machine Learning project</p>
-                <ul class="tags"><li>Python</li><li>XGBoost</li><li>LightGBM</li><li>Optuna</li><li>SHAP</li></ul>
+                <ul class="tags"><li>Python</li><li>XGBoost</li><li>LightGBM</li><li>SHAP</li></ul>
                 <span class="card__more">View details &#9656;</span>
               </div>
               <template class="card__detail">
@@ -449,7 +450,7 @@
                     <li><b>Setup:</b> integrated the entire ML workflow in a single Jupyter Notebook with structured directories for data, models, and reports.</li>
                     <li><b>Data Understanding &amp; EDA:</b> statistical summaries, correlation heatmaps, and distributions; identified annual_medical_cost as the target and handled multicollinearity in insurance-related fields.</li>
                     <li><b>Preprocessing &amp; Feature Engineering:</b> One-Hot and Ordinal encoding, StandardScaler for continuous variables, and engineered features such as chronic_total and has_multiple_chronic; split into train/validation/test.</li>
-                    <li><b>Model Development:</b> Linear, Ridge, Lasso, and ElasticNet baselines; tree-based Random Forest, XGBoost, and LightGBM; tuned XGBoost with Optuna. Reported MAE, RMSE, and R&#178;.</li>
+                    <li><b>Model Development:</b> Linear, Ridge, Lasso, and ElasticNet baselines; tree-based Random Forest, XGBoost, and LightGBM; with tuned XGBoost. Reported MAE, RMSE, and R&#178;.</li>
                     <li><b>Explainability:</b> SHAP for feature importance and interpretability, with dependence plots and narrative insights on model behavior and fairness.</li>
                     <li><b>Deployment &amp; Reporting:</b> saved the final model, preprocessing pipeline, and timestamped reports; built a reusable load_model_and_predict() function and automated JSON/CSV summaries for reproducibility.</li>
                   </ul>
@@ -566,7 +567,7 @@
   <!-- Background music (starts after the entry gesture) -->
   <audio id="bg-music" src="assets/music.mp3" preload="auto"></audio>
 
-  <script src="js/main.js?v=26"></script>
+  <script src="js/main.js?v=27"></script>
   <!-- fonts: Exo 2 + Inter -->
 </body>
 </html>

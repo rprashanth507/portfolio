@@ -127,11 +127,20 @@
   music.addEventListener("pause", updatePlayIcon);
 
   function startMusic() {
-    // Tap to play: load the first track but stay paused until the user taps play.
+    // The entry tap is a user gesture, so playback is allowed. The landing
+    // screen warns the visitor first, then the music fades in on entry.
     loadTrack(0);
-    music.volume = 0.35;
-    updatePlayIcon();                               // shows the play (triangle) glyph
-    if (playBtn) playBtn.classList.add("hint");     // pulse the button to invite a tap
+    rememberPaused(false);
+    if (playBtn) playBtn.classList.remove("hint");
+    music.volume = 0.0;
+    music.play().then(() => {
+      updatePlayIcon();
+      const target = 0.35, stepv = target / 40;
+      const id = setInterval(() => {
+        music.volume = Math.min(target, music.volume + stepv);
+        if (music.volume >= target) clearInterval(id);
+      }, 40);
+    }).catch(updatePlayIcon);
   }
 
   if (playBtn) playBtn.addEventListener("click", () => { sfx.select(); togglePlay(); });

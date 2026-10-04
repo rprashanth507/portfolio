@@ -125,6 +125,15 @@ body {
 .entry__prompt-text b { color: var(--accent-2); }
 .entry__caret { color: var(--accent); animation: blink 1s steps(1) infinite; }
 .entry__hint { color: var(--muted-2); font-size: 0.85rem; margin-top: 26px; }
+.entry__note {
+  margin-top: 16px;
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+}
+.entry__note-icon { color: var(--accent-2); font-size: 0.95rem; }
 
 /* ============================================================
    APP SHELL
@@ -401,10 +410,16 @@ a.btn { display: inline-flex; align-items: center; gap: 6px; text-decoration: no
 .chips, .tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
 .chips li, .tags li {
   font-family: var(--font-ui); font-weight: 600; letter-spacing: 0.03em;
-  background: rgba(78,168,255,0.08); border: 1px solid var(--line);
-  padding: 7px 14px; border-radius: 999px; font-size: 0.9rem; color: #cfe0f7;
+  background: rgba(78,168,255,0.14); border: 1px solid rgba(78,168,255,0.38);
+  padding: 7px 14px; border-radius: 999px; font-size: 0.9rem; color: #cfe3ff;
 }
 .tags li { font-size: 0.82rem; padding: 5px 12px; }
+/* Project (and detail) skill chips get a touch more blue so they pop */
+.card .tags li, .detail .tags li {
+  background: rgba(78,168,255,0.2);
+  border-color: rgba(78,168,255,0.55);
+  color: #e0eeff;
+}
 
 /* ---------- Skills ---------- */
 .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
