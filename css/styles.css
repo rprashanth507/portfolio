@@ -150,14 +150,16 @@ body {
   background: rgba(6, 12, 24, 0.72);
   position: sticky; top: 0; z-index: 8;
 }
-.topbar__brand { display: flex; align-items: center; gap: 12px; }
+.topbar__brand { display: flex; align-items: center; gap: 13px; }
 .topbar__logo {
-  font-family: var(--font-display); font-weight: 900;
-  width: 40px; height: 40px; display: grid; place-items: center;
-  border: 1px solid var(--accent); border-radius: 10px;
-  color: var(--accent-2); box-shadow: var(--glow);
+  font-family: var(--font-display); font-weight: 900; font-size: 1.02rem;
+  width: 44px; height: 44px; display: grid; place-items: center;
+  border-radius: 12px; letter-spacing: 0.02em;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #04121f;
+  box-shadow: 0 5px 16px rgba(78,168,255,0.42), inset 0 1px 0 rgba(255,255,255,0.3);
 }
-.topbar__name { font-family: var(--font-ui); font-weight: 700; letter-spacing: 0.08em; font-size: 1.05rem; color: var(--accent-2); }
+.topbar__name { font-family: var(--font-ui); font-weight: 700; letter-spacing: 0.05em; font-size: 1.12rem; color: var(--accent-2); line-height: 1.15; }
 .topbar__status {
   display: inline-flex; align-items: center; gap: 6px;
   font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 0.2em;
@@ -580,13 +582,13 @@ body.modal-open { overflow: hidden; }
 /* ---------- Top-bar identity + stats dropdown ---------- */
 .topbar__brand { position: relative; }
 .topbar__id {
-  display: flex; flex-direction: column; align-items: flex-start; gap: 0;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
   background: none; border: 1px solid transparent; cursor: pointer;
-  padding: 3px 8px; border-radius: 8px; line-height: 1.2;
+  padding: 4px 9px; border-radius: 9px; line-height: 1.2;
   transition: background 0.15s, border-color 0.15s;
 }
-.topbar__id:hover, .topbar__id:focus-visible { background: rgba(78,168,255,0.08); border-color: var(--line); outline: none; }
-.topbar__role { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 0.05em; color: var(--accent); }
+.topbar__id:hover, .topbar__id:focus-visible { background: rgba(78,168,255,0.1); border-color: rgba(78,168,255,0.3); outline: none; }
+.topbar__role { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-ui); font-weight: 600; font-size: 0.73rem; letter-spacing: 0.06em; color: var(--accent); }
 .topbar__sep { color: var(--muted); }
 .topbar__caret { color: var(--muted); font-size: 0.6rem; transition: transform 0.18s; }
 .topbar__id[aria-expanded="true"] .topbar__caret { transform: rotate(180deg); }
