@@ -342,6 +342,7 @@ body {
   padding: clamp(20px, 3vw, 38px);  min-height: 520px;
   position: relative;
   overflow: hidden;
+  display: flex; flex-direction: column;
 }
 .panel { animation: fade 0.4s ease both; }
 .panel[hidden] { display: none; }
@@ -409,28 +410,48 @@ a.btn { display: inline-flex; align-items: center; gap: 6px; text-decoration: no
 .btn--primary:hover { filter: brightness(1.08); }
 
 /* ---------- Section prev / next footer nav ---------- */
+/* margin-top:auto pins the bar to the bottom of the content card, so it lands
+   in the same place on every section regardless of how tall the content is. */
 .section-nav {
-  display: flex; justify-content: space-between; align-items: stretch; gap: 12px;
-  margin-top: 36px; padding-top: 22px;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  margin-top: auto; padding-top: 26px;
   border-top: 1px solid var(--line);
 }
 .section-nav__btn {
-  display: flex; flex-direction: column; gap: 3px;
-  font-family: var(--font-ui); cursor: pointer; text-align: left;
-  background: rgba(78,168,255,0.06); border: 1px solid var(--line);
-  border-radius: 10px; padding: 10px 18px; color: var(--text);
-  min-width: 140px; max-width: 48%;
-  transition: background 0.18s, border-color 0.18s, transform 0.1s;
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--font-ui); cursor: pointer; max-width: 48%;
+  background: linear-gradient(180deg, rgba(78,168,255,0.10), rgba(78,168,255,0.03));
+  border: 1px solid var(--line); border-radius: 12px;
+  padding: 9px 16px; color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.12s, background 0.2s;
 }
-.section-nav__btn:hover { background: rgba(78,168,255,0.16); border-color: var(--accent); transform: translateY(-2px); }
-.section-nav__btn:active { transform: translateY(0) scale(0.98); }
-.section-nav__btn--next { text-align: right; align-items: flex-end; }
+.section-nav__btn:hover {
+  border-color: var(--accent);
+  box-shadow: 0 8px 22px rgba(78,168,255,0.18);
+  transform: translateY(-2px);
+}
+.section-nav__btn:active { transform: translateY(0) scale(0.985); }
+.section-nav__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.section-nav__btn--next .section-nav__text { align-items: flex-end; }
 .section-nav__dir {
-  font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--muted); font-weight: 600;
+  font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--muted); font-weight: 700;
 }
-.section-nav__name { font-size: 1rem; font-weight: 700; color: var(--accent-2); letter-spacing: 0.02em; }
-.section-nav__arrow { color: var(--accent); }
+.section-nav__name {
+  font-size: 0.98rem; font-weight: 700; color: var(--text); letter-spacing: 0.02em;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;
+}
+.section-nav__btn:hover .section-nav__name { color: var(--accent-2); }
+.section-nav__arrow {
+  flex: none; display: grid; place-items: center;
+  width: 30px; height: 30px; border-radius: 9px;
+  background: rgba(78,168,255,0.12); border: 1px solid var(--line);
+  color: var(--accent-2); font-size: 1.15rem; line-height: 1;
+  transition: transform 0.2s, background 0.2s, border-color 0.2s;
+}
+.section-nav__btn:hover .section-nav__arrow { background: rgba(78,168,255,0.22); border-color: var(--accent); }
+.section-nav__btn--prev:hover .section-nav__arrow { transform: translateX(-3px); }
+.section-nav__btn--next:hover .section-nav__arrow { transform: translateX(3px); }
 .section-nav__btn.is-off { visibility: hidden; }
 
 /* ---------- Chips / tags ---------- */

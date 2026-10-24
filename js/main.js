@@ -309,6 +309,7 @@
     const label = b.querySelector(".menu__label");
     return { name: b.dataset.panel, label: label ? label.textContent.trim() : b.dataset.panel };
   });
+  const sectionNavEl = document.querySelector(".section-nav");
   const secPrev = document.getElementById("section-prev");
   const secNext = document.getElementById("section-next");
   const secPrevLabel = secPrev && secPrev.querySelector("[data-prev-label]");
@@ -316,6 +317,8 @@
   let navPrevTarget = null, navNextTarget = null;
 
   function updateSectionNav(name) {
+    // Home has no prev/next bar at all.
+    if (sectionNavEl) sectionNavEl.hidden = (name === "home");
     let idx = sectionOrder.findIndex((o) => o.name === name);
     if (idx < 0) idx = 0;
     const prev = idx > 0 ? sectionOrder[idx - 1] : null;

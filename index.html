@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=31" />
+  <link rel="stylesheet" href="css/styles.css?v=32" />
 </head>
 <body>
   <!-- Animated space background -->
@@ -555,12 +555,18 @@
         <!-- Prev / next section navigation (updated by JS to match the menu order) -->
         <nav class="section-nav" aria-label="Section navigation">
           <button class="section-nav__btn section-nav__btn--prev" id="section-prev" type="button">
-            <span class="section-nav__dir">Previous</span>
-            <span class="section-nav__name"><span class="section-nav__arrow" aria-hidden="true">&#8249;</span> <span data-prev-label>About Me</span></span>
+            <span class="section-nav__arrow" aria-hidden="true">&#8249;</span>
+            <span class="section-nav__text">
+              <span class="section-nav__dir">Previous</span>
+              <span class="section-nav__name" data-prev-label>About Me</span>
+            </span>
           </button>
           <button class="section-nav__btn section-nav__btn--next" id="section-next" type="button">
-            <span class="section-nav__dir">Next</span>
-            <span class="section-nav__name"><span data-next-label>Experience</span> <span class="section-nav__arrow" aria-hidden="true">&#8250;</span></span>
+            <span class="section-nav__text">
+              <span class="section-nav__dir">Next</span>
+              <span class="section-nav__name" data-next-label>Experience</span>
+            </span>
+            <span class="section-nav__arrow" aria-hidden="true">&#8250;</span>
           </button>
         </nav>
       </section>
@@ -579,7 +585,7 @@
   <!-- Background music (starts after the entry gesture) -->
   <audio id="bg-music" src="assets/music.mp3" preload="auto"></audio>
 
-  <script src="js/main.js?v=28"></script>
+  <script src="js/main.js?v=29"></script>
   <!-- fonts: Exo 2 + Inter -->
 </body>
 </html>
