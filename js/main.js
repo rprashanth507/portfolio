@@ -196,6 +196,7 @@
     // mute hover blips while the page scrolls (items slide under a still cursor)
     hoverMuteUntil = performance.now() + 700;
     scrollToTop();
+    updateSectionNav(name);
   }
 
   // One-time intro on first entry: photo eases in, welcome text reveals word-by-word.
@@ -301,6 +302,40 @@
   document.querySelectorAll("[data-goto]").forEach((el) => {
     el.addEventListener("click", () => activate(el.dataset.goto));
   });
+
+  /* ---------- prev / next section footer nav ---------- */
+  // Section order follows the menu, so reordering the menu reorders this too.
+  const sectionOrder = items.map((b) => {
+    const label = b.querySelector(".menu__label");
+    return { name: b.dataset.panel, label: label ? label.textContent.trim() : b.dataset.panel };
+  });
+  const secPrev = document.getElementById("section-prev");
+  const secNext = document.getElementById("section-next");
+  const secPrevLabel = secPrev && secPrev.querySelector("[data-prev-label]");
+  const secNextLabel = secNext && secNext.querySelector("[data-next-label]");
+  let navPrevTarget = null, navNextTarget = null;
+
+  function updateSectionNav(name) {
+    let idx = sectionOrder.findIndex((o) => o.name === name);
+    if (idx < 0) idx = 0;
+    const prev = idx > 0 ? sectionOrder[idx - 1] : null;
+    const next = idx < sectionOrder.length - 1 ? sectionOrder[idx + 1] : null;
+    navPrevTarget = prev ? prev.name : null;
+    navNextTarget = next ? next.name : null;
+    if (secPrev) {
+      secPrev.classList.toggle("is-off", !prev);
+      secPrev.disabled = !prev;
+      if (prev && secPrevLabel) secPrevLabel.textContent = prev.label;
+    }
+    if (secNext) {
+      secNext.classList.toggle("is-off", !next);
+      secNext.disabled = !next;
+      if (next && secNextLabel) secNextLabel.textContent = next.label;
+    }
+  }
+  if (secPrev) secPrev.addEventListener("click", () => { if (navPrevTarget) activate(navPrevTarget); });
+  if (secNext) secNext.addEventListener("click", () => { if (navNextTarget) activate(navNextTarget); });
+  updateSectionNav("home");
 
   /* ============================================================
      DETAIL MODAL  (project / leadership cards + interest tiles)

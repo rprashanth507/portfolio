@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=30" />
+  <link rel="stylesheet" href="css/styles.css?v=31" />
 </head>
 <body>
   <!-- Animated space background -->
@@ -89,8 +89,8 @@
           <ul class="menu__list" role="tablist">
             <li><button class="menu__item is-active" role="tab" aria-selected="true" data-panel="home"><span class="menu__idx">01</span><span class="menu__label">Home</span><span class="menu__cursor" aria-hidden="true">&#9656;</span></button></li>
             <li><button class="menu__item" role="tab" aria-selected="false" data-panel="about"><span class="menu__idx">02</span><span class="menu__label">About Me</span><span class="menu__cursor" aria-hidden="true">&#9656;</span></button></li>
-            <li><button class="menu__item" role="tab" aria-selected="false" data-panel="skills"><span class="menu__idx">03</span><span class="menu__label">Skills</span><span class="menu__cursor" aria-hidden="true">&#9656;</span></button></li>
-            <li><button class="menu__item" role="tab" aria-selected="false" data-panel="experience"><span class="menu__idx">04</span><span class="menu__label">Experience</span><span class="menu__cursor" aria-hidden="true">&#9656;</span></button></li>
+            <li><button class="menu__item" role="tab" aria-selected="false" data-panel="experience"><span class="menu__idx">03</span><span class="menu__label">Experience</span><span class="menu__cursor" aria-hidden="true">&#9656;</span></button></li>
+            <li><button class="menu__item" role="tab" aria-selected="false" data-panel="skills"><span class="menu__idx">04</span><span class="menu__label">Skills</span><span class="menu__cursor" aria-hidden="true">&#9656;</span></button></li>
             <li><button class="menu__item" role="tab" aria-selected="false" data-panel="education"><span class="menu__idx">05</span><span class="menu__label">Education</span><span class="menu__cursor" aria-hidden="true">&#9656;</span></button></li>
             <li><button class="menu__item" role="tab" aria-selected="false" data-panel="projects"><span class="menu__idx">06</span><span class="menu__label">Projects</span><span class="menu__cursor" aria-hidden="true">&#9656;</span></button></li>
             <li><button class="menu__item" role="tab" aria-selected="false" data-panel="leadership"><span class="menu__idx">07</span><span class="menu__label">Leadership</span><span class="menu__cursor" aria-hidden="true">&#9656;</span></button></li>
@@ -110,7 +110,7 @@
               <p>I enjoy building <b>end-to-end data solutions</b> - from solving data ingestion and storage challenges to building dashboards and analytical solutions that help businesses make better, data-backed decisions.</p>
               <p>I want to be sitting at the intersection of business and technology, understanding real-world problems, and turning them into practical solutions that create value.</p>
               <div class="cta-row">
-                <button class="btn btn--primary" data-goto="projects">View Projects &#9656;</button>
+                <button class="btn btn--primary" data-goto="experience">View Experience &#9656;</button>
                 <button class="btn" data-goto="contact">Get in touch</button>
                 <a class="btn btn--ghost" href="assets/Prashanth_Reddy_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume &#8595;</a>
               </div>
@@ -166,29 +166,6 @@
           </template>
         </article>
 
-        <!-- SKILLS -->
-        <article class="panel" id="panel-skills" role="tabpanel" hidden>
-          <h2 class="panel__title">Skills</h2>
-          <div class="skill-grid">
-            <div class="skill-cat">
-              <h3>Programming</h3>
-              <ul class="tags"><li>SQL</li><li>Python</li><li>R</li><li>PySpark</li><li>NoSQL</li></ul>
-            </div>
-            <div class="skill-cat">
-              <h3>Data Engineering</h3>
-              <ul class="tags"><li>Snowflake</li><li>AWS</li><li>dbt</li><li>Microsoft Fabric</li><li>BigQuery</li><li>Hadoop</li><li>Spark</li><li>Airflow</li><li>Alteryx</li><li>SSIS</li><li>Data Modeling</li><li>Cloud Computing</li><li>ETL Development</li></ul>
-            </div>
-            <div class="skill-cat">
-              <h3>Data Analytics</h3>
-              <ul class="tags"><li>Tableau</li><li>Power BI</li><li>Excel</li><li>Hypothesis Testing</li><li>A/B Testing</li><li>Statistical Modeling</li><li>Machine Learning</li></ul>
-            </div>
-            <div class="skill-cat">
-              <h3>Soft Skills</h3>
-              <ul class="tags"><li>Communication</li><li>Leadership</li><li>Teamwork</li><li>Problem-Solving</li><li>Strategic Thinking</li></ul>
-            </div>
-          </div>
-        </article>
-
         <!-- EXPERIENCE -->
         <article class="panel" id="panel-experience" role="tabpanel" hidden>
           <h2 class="panel__title">Experience</h2>
@@ -230,6 +207,29 @@
             <div class="xp__awards">
               <span class="award">&#127942; "Brightest Beginner" &mdash; Annual Award, GMI unit (2022)</span>
               <span class="award">&#11088; Quarterly Spotlight Award (Apr 2023)</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- SKILLS -->
+        <article class="panel" id="panel-skills" role="tabpanel" hidden>
+          <h2 class="panel__title">Skills</h2>
+          <div class="skill-grid">
+            <div class="skill-cat">
+              <h3>Programming</h3>
+              <ul class="tags"><li>SQL</li><li>Python</li><li>R</li><li>PySpark</li><li>NoSQL</li></ul>
+            </div>
+            <div class="skill-cat">
+              <h3>Data Engineering</h3>
+              <ul class="tags"><li>Snowflake</li><li>AWS</li><li>dbt</li><li>Microsoft Fabric</li><li>BigQuery</li><li>Hadoop</li><li>Spark</li><li>Airflow</li><li>Alteryx</li><li>SSIS</li><li>Data Modeling</li><li>Cloud Computing</li><li>ETL Development</li></ul>
+            </div>
+            <div class="skill-cat">
+              <h3>Data Analytics</h3>
+              <ul class="tags"><li>Tableau</li><li>Power BI</li><li>Excel</li><li>Hypothesis Testing</li><li>A/B Testing</li><li>Statistical Modeling</li><li>Machine Learning</li></ul>
+            </div>
+            <div class="skill-cat">
+              <h3>Soft Skills</h3>
+              <ul class="tags"><li>Communication</li><li>Leadership</li><li>Teamwork</li><li>Problem-Solving</li><li>Strategic Thinking</li></ul>
             </div>
           </div>
         </article>
@@ -551,6 +551,18 @@
             </li>
           </ul>
         </article>
+
+        <!-- Prev / next section navigation (updated by JS to match the menu order) -->
+        <nav class="section-nav" aria-label="Section navigation">
+          <button class="section-nav__btn section-nav__btn--prev" id="section-prev" type="button">
+            <span class="section-nav__dir">Previous</span>
+            <span class="section-nav__name"><span class="section-nav__arrow" aria-hidden="true">&#8249;</span> <span data-prev-label>About Me</span></span>
+          </button>
+          <button class="section-nav__btn section-nav__btn--next" id="section-next" type="button">
+            <span class="section-nav__dir">Next</span>
+            <span class="section-nav__name"><span data-next-label>Experience</span> <span class="section-nav__arrow" aria-hidden="true">&#8250;</span></span>
+          </button>
+        </nav>
       </section>
     </div>
   </main>
@@ -567,7 +579,7 @@
   <!-- Background music (starts after the entry gesture) -->
   <audio id="bg-music" src="assets/music.mp3" preload="auto"></audio>
 
-  <script src="js/main.js?v=27"></script>
+  <script src="js/main.js?v=28"></script>
   <!-- fonts: Exo 2 + Inter -->
 </body>
 </html>
