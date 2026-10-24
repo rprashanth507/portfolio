@@ -417,6 +417,9 @@ a.btn { display: inline-flex; align-items: center; gap: 6px; text-decoration: no
   margin-top: auto; padding-top: 26px;
   border-top: 1px solid var(--line);
 }
+/* Home has no prev/next bar. Needs to beat the display:flex above, since an
+   author display rule otherwise overrides the browser's built-in [hidden]. */
+.section-nav[hidden] { display: none; }
 .section-nav__btn {
   display: inline-flex; align-items: center; gap: 12px;
   font-family: var(--font-ui); cursor: pointer; max-width: 48%;
