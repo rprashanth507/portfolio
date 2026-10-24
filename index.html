@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=33" />
+  <link rel="stylesheet" href="css/styles.css?v=34" />
 </head>
 <body>
   <!-- Animated space background -->
@@ -55,7 +55,7 @@
     <!-- Top bar -->
     <header class="topbar">
       <div class="topbar__brand">
-        <span class="topbar__logo">PR</span>
+        <button class="topbar__logo" id="id-logo" type="button" aria-label="View details" aria-controls="id-stats" aria-expanded="false"><img src="assets/avatar.svg?v=1" alt="Prashanth avatar" width="44" height="44" /></button>
         <button class="topbar__id" id="id-toggle" type="button" aria-expanded="false" aria-controls="id-stats" title="View details">
           <span class="topbar__name">Prashanth Reddy</span>
           <span class="topbar__role">Data Engineer <span class="topbar__sep">|</span> Data Analyst <span class="topbar__caret" aria-hidden="true">&#9662;</span></span>
@@ -85,7 +85,6 @@
       <!-- ===== Sidebar: player card + menu ===== -->
       <aside class="sidebar">
         <nav class="menu" aria-label="Sections">
-          <p class="menu__title">// MAIN MENU</p>
           <ul class="menu__list" role="tablist">
             <li><button class="menu__item is-active" role="tab" aria-selected="true" data-panel="home"><span class="menu__idx">01</span><span class="menu__label">Home</span><span class="menu__cursor" aria-hidden="true">&#9656;</span></button></li>
             <li><button class="menu__item" role="tab" aria-selected="false" data-panel="about"><span class="menu__idx">02</span><span class="menu__label">About Me</span><span class="menu__cursor" aria-hidden="true">&#9656;</span></button></li>
@@ -105,7 +104,7 @@
         <article class="panel is-active" id="panel-home" role="tabpanel">
           <div class="home">
             <div class="home__text">
-              <p class="lead">Hi there &#128075; and welcome to my space! I'm <b>Prashanth Reddy</b>, and this is where you can dive deeper into what I've been working on and what I'm passionate about. Let's talk work!</p>
+              <p class="lead">Hi there &#128075; and welcome to my space! I'm <b>Prashanth Reddy</b>, and this is where you can dive deeper into what I've been working on and what I'm passionate about. If you'd like to get to know me beyond work, head over to <button class="inline-link" data-goto="about">About Me</button>. Otherwise, let's talk work!</p>
               <h3 class="q">Well then, what do I love working on?</h3>
               <p>I enjoy building <b>end-to-end data solutions</b> - from solving data ingestion and storage challenges to building dashboards and analytical solutions that help businesses make better, data-backed decisions.</p>
               <p>I want to be sitting at the intersection of business and technology, understanding real-world problems, and turning them into practical solutions that create value.</p>
@@ -585,7 +584,7 @@
   <!-- Background music (starts after the entry gesture) -->
   <audio id="bg-music" src="assets/music.mp3" preload="auto"></audio>
 
-  <script src="js/main.js?v=29"></script>
+  <script src="js/main.js?v=30"></script>
   <!-- fonts: Exo 2 + Inter -->
 </body>
 </html>
