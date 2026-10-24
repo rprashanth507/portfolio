@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=34" />
+  <link rel="stylesheet" href="css/styles.css?v=36" />
 </head>
 <body>
   <!-- Animated space background -->
@@ -55,17 +55,21 @@
     <!-- Top bar -->
     <header class="topbar">
       <div class="topbar__brand">
-        <button class="topbar__logo" id="id-logo" type="button" aria-label="View details" aria-controls="id-stats" aria-expanded="false"><img src="assets/avatar.svg?v=1" alt="Prashanth avatar" width="44" height="44" /></button>
-        <button class="topbar__id" id="id-toggle" type="button" aria-expanded="false" aria-controls="id-stats" title="View details">
-          <span class="topbar__name">Prashanth Reddy</span>
-          <span class="topbar__role">Data Engineer <span class="topbar__sep">|</span> Data Analyst <span class="topbar__caret" aria-hidden="true">&#9662;</span></span>
-        </button>
-        <span class="topbar__status"><i class="dot"></i> ONLINE</span>
-        <div class="topbar__stats" id="id-stats" hidden>
-          <div><span>EXP</span><b>3+ yrs</b></div>
-          <div><span>BASE</span><b>Dallas, TX</b></div>
-          <div><span>FOCUS</span><b>Data &amp; AI</b></div>
+        <div class="topbar__idwrap">
+          <button class="topbar__id" id="id-toggle" type="button" aria-expanded="false" aria-controls="id-stats" title="View details">
+            <span class="topbar__logo"><img src="assets/avatar.svg?v=1" alt="" width="44" height="44" /></span>
+            <span class="topbar__idtext">
+              <span class="topbar__name">Prashanth Reddy</span>
+              <span class="topbar__role">Data Engineer <span class="topbar__sep">|</span> Data Analyst <span class="topbar__caret" aria-hidden="true">&#9662;</span></span>
+            </span>
+          </button>
+          <div class="topbar__stats" id="id-stats" hidden>
+            <div><span>EXP</span><b>3+ yrs</b></div>
+            <div><span>BASE</span><b>Dallas, TX</b></div>
+            <div><span>FOCUS</span><b>Data &amp; AI</b></div>
+          </div>
         </div>
+        <span class="topbar__status"><i class="dot"></i> ONLINE</span>
       </div>
       <div class="topbar__controls">
         <span class="nowplaying" id="nowplaying" tabindex="0" aria-label="Now playing">
@@ -584,7 +588,7 @@
   <!-- Background music (starts after the entry gesture) -->
   <audio id="bg-music" src="assets/music.mp3" preload="auto"></audio>
 
-  <script src="js/main.js?v=30"></script>
+  <script src="js/main.js?v=31"></script>
   <!-- fonts: Exo 2 + Inter -->
 </body>
 </html>

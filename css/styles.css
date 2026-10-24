@@ -153,14 +153,10 @@ body {
 .topbar__brand { display: flex; align-items: center; gap: 13px; }
 .topbar__logo {
   width: 44px; height: 44px; display: block; flex: none;
-  padding: 0; background: none; cursor: pointer;
   border-radius: 12px; overflow: hidden;
   border: 1px solid rgba(120,200,255,0.4);
   box-shadow: 0 5px 16px rgba(78,168,255,0.42);
-  transition: border-color 0.18s, transform 0.1s;
 }
-.topbar__logo:hover { border-color: var(--accent); transform: translateY(-1px); }
-.topbar__logo:active { transform: translateY(0) scale(0.97); }
 .topbar__logo img { display: block; width: 100%; height: 100%; }
 .topbar__name { font-family: var(--font-ui); font-weight: 700; letter-spacing: 0.05em; font-size: 1.12rem; color: var(--accent-2); line-height: 1.15; }
 .topbar__status {
@@ -634,20 +630,22 @@ body.modal-open { overflow: hidden; }
 
 /* ---------- Top-bar identity + stats dropdown ---------- */
 .topbar__brand { position: relative; }
+.topbar__idwrap { position: relative; }
 .topbar__id {
-  display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
+  display: flex; flex-direction: row; align-items: center; gap: 10px;
   background: none; border: 1px solid transparent; cursor: pointer;
-  padding: 4px 9px; border-radius: 9px; line-height: 1.2;
+  padding: 4px 11px 4px 4px; border-radius: 12px;
   transition: background 0.15s, border-color 0.15s;
 }
+.topbar__idtext { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; line-height: 1.2; }
 .topbar__id:hover, .topbar__id:focus-visible { background: rgba(78,168,255,0.1); border-color: rgba(78,168,255,0.3); outline: none; }
 .topbar__role { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-ui); font-weight: 600; font-size: 0.73rem; letter-spacing: 0.06em; color: var(--accent); }
 .topbar__sep { color: var(--muted); }
 .topbar__caret { color: var(--muted); font-size: 0.6rem; transition: transform 0.18s; }
 .topbar__id[aria-expanded="true"] .topbar__caret { transform: rotate(180deg); }
 .topbar__stats {
-  position: absolute; top: calc(100% + 10px); left: 52px; z-index: 40;
-  display: grid; gap: 9px; min-width: 180px;
+  position: absolute; top: calc(100% + 10px); left: 50%; margin-left: -90px; z-index: 40;
+  display: grid; gap: 9px; width: 180px;
   background: var(--panel-solid); border: 1px solid var(--accent);
   border-radius: 12px; padding: 14px 16px;
   box-shadow: 0 16px 44px rgba(0,0,0,0.55), var(--glow);

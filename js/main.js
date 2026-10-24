@@ -390,30 +390,19 @@
   });
 
   /* ---------- top-bar identity dropdown (EXP / BASE / FOCUS) ---------- */
-  // Both the avatar and the name open this popup.
+  // Avatar + name are one button that opens this popup.
   const idToggle = document.getElementById("id-toggle");
-  const idLogo   = document.getElementById("id-logo");
   const idStats  = document.getElementById("id-stats");
-  function setIdExpanded(v) {
-    const s = String(v);
-    if (idToggle) idToggle.setAttribute("aria-expanded", s);
-    if (idLogo) idLogo.setAttribute("aria-expanded", s);
-  }
-  function closeId() { if (idStats) { idStats.hidden = true; setIdExpanded(false); } }
+  function closeId() { if (idStats) { idStats.hidden = true; if (idToggle) idToggle.setAttribute("aria-expanded", "false"); } }
   function toggleId() {
     if (!idStats) return;
     const willOpen = idStats.hidden;
     idStats.hidden = !willOpen;
-    setIdExpanded(willOpen);
+    if (idToggle) idToggle.setAttribute("aria-expanded", String(willOpen));
   }
-  [idToggle, idLogo].forEach((el) => {
-    if (el) el.addEventListener("click", (e) => { e.stopPropagation(); sfx.hover(); toggleId(); });
-  });
+  if (idToggle) idToggle.addEventListener("click", (e) => { e.stopPropagation(); sfx.hover(); toggleId(); });
   document.addEventListener("click", (e) => {
-    if (idStats && !idStats.hidden
-        && !idStats.contains(e.target)
-        && !(idToggle && idToggle.contains(e.target))
-        && !(idLogo && idLogo.contains(e.target))) closeId();
+    if (idStats && !idStats.hidden && !idStats.contains(e.target) && !(idToggle && idToggle.contains(e.target))) closeId();
   });
 
   /* ============================================================
